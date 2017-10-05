@@ -65,7 +65,14 @@ export default class MinimalistPicker extends React.Component {
       <Animated.View style={[this.slideStyle(), { flex: 1, position: 'absolute', top: 0, right: 0, bottom: 0, left: 0 }]}>
         <TouchableOpacity onPress={() => this.closePicker()} style={{ backgroundColor: 'rgba(0, 0, 0, 0)', flex: 1, position: 'absolute', top: 0, right: 0, bottom: 0, left: 0, zIndex: 2 }} />
         <Picker
-          style={this.props.style}
+          style={[{
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            right: 0,
+            backgroundColor: '#FAFAFA',
+            zIndex: 3
+          }, this.props.style]}
           selectedValue={this.state.selectedValue}
           onValueChange={(item, index) => this.changeSelection(item, index)}>
           {this.renderOptions()}
